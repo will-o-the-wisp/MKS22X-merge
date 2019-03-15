@@ -35,16 +35,27 @@ public class Merge{
     }
   }
   public static void mergesort(int[] data){
-    mergesortH(data,0,data.length-1);
+    mergesortH(data);
   }
-  private static void mergesortH(int[] data, int lo, int hi){
-    if(lo>=hi){
-      return;
-    }
+  private static void mergesortH(int[] data){
+  //  if(lo>=hi){
+  //    return;
+  //  }
     int[] left = new int[(lo+hi)/2-lo+1];
-    int[] right = new int[hi-(lo+hi)/2]
-    mergesortH(data,lo,(lo+hi)/2);
-    mergesortH(data,(lo+hi)/2+1,hi);
-
+    int[] right = new int[hi-(lo+hi)/2];
+    for(int i=0;i<left.length;i++){
+      left[i]=data[i];
+    }
+    for(int i=0;i<right.length;i++){
+      right[i]=data[i+left.length];
+    }
+    mergesortH(left);
+    mergesortH(right);
+    for(int i=0;i<left.length;i++){
+      data[i]=left[i];
+    }
+    for(int i=left.length;i<right.length;i++){
+      data[i]=right[i];;
+    }
   }
 }
