@@ -1,3 +1,4 @@
+import java.util.*;
 public class Merge{
 
   public static void main(String[]args){
@@ -41,8 +42,11 @@ public class Merge{
   //  if(lo>=hi){
   //    return;
   //  }
-    int[] left = new int[(lo+hi)/2-lo+1];
-    int[] right = new int[hi-(lo+hi)/2];
+    if(data.length<2){
+      return;
+    }
+    int[] left = new int[(data.length-1)/2+1];
+    int[] right = new int[data.length-left.length];
     for(int i=0;i<left.length;i++){
       left[i]=data[i];
     }
@@ -51,11 +55,27 @@ public class Merge{
     }
     mergesortH(left);
     mergesortH(right);
+    int i=0;
+    int l=0;
+    int r=0;
+    while(i<data.length){
+      if(left[l]<=right[r]){
+        data[i]=left[l];
+        l++;
+      }
+      else{
+        data[i]=right[r];
+        r++;
+      }
+      i++;
+    }
+    /*
     for(int i=0;i<left.length;i++){
       data[i]=left[i];
     }
-    for(int i=left.length;i<right.length;i++){
-      data[i]=right[i];;
+    for(int i=0;i<right.length;i++){
+      data[i+left.length]=right[i];
     }
+    */
   }
 }
