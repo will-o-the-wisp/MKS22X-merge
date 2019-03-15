@@ -59,7 +59,7 @@ public class Merge{
     int l=0;
     int r=0;
     while(i<data.length){
-      if(left[l]<=right[r]){
+      if(r>=right.length||(l<left.length&&left[l]<=right[r])){
         data[i]=left[l];
         l++;
       }
