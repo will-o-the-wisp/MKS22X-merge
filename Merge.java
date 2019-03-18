@@ -40,9 +40,28 @@ public class Merge{
     for(int i=0;i<temp.length;i++){
       temp[i]=data[i];
     }
-    mergesortH2(data,temp,lo,hi);
+    mergesortH2(data,temp,0,data.length-1);
   }
   private static void mergesortH2(int[] data, int[] temp, int lo, int hi){
+    if(lo>=hi){
+      return;
+    }
+    mergesortH2(temp, data, lo, (hi+lo)/2);
+    mergesortH2(temp, data, (hi+lo)/2+1, hi);
+    int i=0;
+    int l=lo;
+    int r=(hi+lo)/2+1;
+    while(i<hi-lo+1){
+      if(r>=hi+1||(l<(hi+lo)/2+1&&temp[l]<=temp[r])){
+        data[i]=temp[l];
+        l++;
+      }
+      else{
+        data[i]=temp[r];
+        r++;
+      }
+      i++;
+    }
 
   }
   private static void mergesortH(int[] data){
