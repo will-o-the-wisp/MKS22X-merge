@@ -53,11 +53,11 @@ public class Merge{
     int r=(hi+lo)/2+1;
     while(i<hi-lo+1){
       if(r>=hi+1||(l<(hi+lo)/2+1&&temp[l]<=temp[r])){
-        data[i]=temp[l];
+        data[i+lo]=temp[l];
         l++;
       }
       else{
-        data[i]=temp[r];
+        data[i+lo]=temp[r];
         r++;
       }
       i++;
