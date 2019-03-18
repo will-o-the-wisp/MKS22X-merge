@@ -36,7 +36,14 @@ public class Merge{
     }
   }
   public static void mergesort(int[] data){
-    mergesortH(data);
+    int[] temp = new int[data.length];
+    for(int i=0;i<temp.length;i++){
+      temp[i]=data[i];
+    }
+    mergesortH2(data,temp,lo,hi);
+  }
+  private static void mergesortH2(int[] data, int[] temp, int lo, int hi){
+
   }
   private static void mergesortH(int[] data){
   //  if(lo>=hi){
