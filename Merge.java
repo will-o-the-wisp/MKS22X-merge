@@ -2,6 +2,7 @@ import java.util.*;
 public class Merge{
 
   public static void main(String[]args){
+    /*
     System.out.println("Size\t\tMax Value\tmerge/builtin ratio ");
     int[]MAX_LIST = {1000000000,500,10};
     for(int MAX : MAX_LIST){
@@ -34,6 +35,23 @@ public class Merge{
       }
       System.out.println();
     }
+    */
+    Random r = new Random();
+    int[] a = new int[10];
+    for(int i=0;i<a.length;i++){
+      a[i] = r.nextInt(50);
+    }
+    System.out.println(ats(a));
+    insertionsort(a,2,7);
+    System.out.println(ats(a));
+  }
+  private static String ats(int[] data){
+    String s="";
+    for(int i=0;i<data.length;i++){
+      s+=data[i];
+      s+=" ";
+    }
+    return s;
   }
   private static void insertionsort(int[] data, int lo, int hi){
     int index=lo+1;
@@ -41,7 +59,7 @@ public class Merge{
       if(data[i-1]>data[i]){
         int temp=data[i];
         int j=i-1;
-        while(j>=0&&temp<data[j]){
+        while(j>=lo&&temp<data[j]){
             data[j+1]=data[j];
             j--;
         }
@@ -57,7 +75,8 @@ public class Merge{
     mergesortH2(data,temp,0,data.length-1);
   }
   private static void mergesortH2(int[] data, int[] temp, int lo, int hi){
-    if(lo>=hi){
+    if(hi-lo+1<10){
+      insertionsort(data,lo,hi);
       return;
     }
     mergesortH2(temp, data, lo, (hi+lo)/2);
