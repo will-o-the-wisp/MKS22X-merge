@@ -35,6 +35,20 @@ public class Merge{
       System.out.println();
     }
   }
+  private static void insertionsort(int[] data, int lo, int hi){
+    int index=lo+1;
+    for(int i=index;i<hi+1;i++){
+      if(data[i-1]>data[i]){
+        int temp=data[i];
+        int j=i-1;
+        while(j>=0&&temp<data[j]){
+            data[j+1]=data[j];
+            j--;
+        }
+        data[j+1]=temp;
+      }
+    }
+  }
   public static void mergesort(int[] data){
     int[] temp = new int[data.length];
     for(int i=0;i<temp.length;i++){
