@@ -75,7 +75,7 @@ public class Merge{
     mergesortH2(data,temp,0,data.length-1);
   }
   private static void mergesortH2(int[] data, int[] temp, int lo, int hi){
-    if(hi-lo+1<10){
+    if(hi-lo+1<50){
       insertionsort(data,lo,hi);
       return;
     }

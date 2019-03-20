@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Driver {
 
-	static int TRIALS = 500;
+	static int TRIALS = 200;
 
 	public static void main(String[] args) {
 		System.out.println("Size\t\tPerformance");
